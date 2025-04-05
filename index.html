@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion GAN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧵 Fashion GAN</h1>
+        <p>Click the button below to generate a new fashion item:</p>
+        <button class="btn" onclick="generateImage()">Generate Fashion Image</button>
+        <div class="image-container">
+            <img id="fashionImage" src="" alt="Generated Fashion" style="display: none;">
+        </div>
+    </div>
+
+    <script>
+        function generateImage() {
+            const img = document.getElementById("fashionImage");
+            img.src = "/generate_image?" + new Date().getTime();  // Bust cache
+            img.style.display = "block";
+        }
+    </script>
+</body>
+</html>
